@@ -1,8 +1,8 @@
 # Use the official Node.js image
-FROM node:18
+FROM node:18-alpine as build
 
 # Set the working directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Expose the port your app runs on
-EXPOSE 8080
+EXPOSE 3000
 
 # Command to run the app
-CMD ["npm", "start"]
+CMD ["npm", "index.js"]
