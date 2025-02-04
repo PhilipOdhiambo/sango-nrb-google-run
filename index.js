@@ -6,7 +6,7 @@ async function getSecret() {
   const { SecretManagerServiceClient } = require('@google-cloud/secret-manager');
   const client = new SecretManagerServiceClient();
   const [version] = await client.accessSecretVersion({
-      name: 'projects/436080486744/secrets/sango-nrb-googlesheet-key/versions/latest',
+      name: 'projects/436080486744/secrets/sango-nrb-googlesheet-key/versions/1',
     });
   return version.payload.data.toString();
 }
